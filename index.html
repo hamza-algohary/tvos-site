@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entertainment OS for TVs &amp; Consoles</title>
+  <meta name="description" content="A Linux-based, AI-powered entertainment operating system for TVs and consoles. Unified streaming, a unified app & game store, an on-device voice assistant, and a remote-first home UI.">
+  <meta property="og:title" content="AI-Powered Entertainment OS for TVs & Consoles">
+  <meta property="og:description" content="Linux-based TV & console OS: unified streaming, unified game store, on-device AI. Graduation project, Al-Azhar University, 2026.">
+  <meta property="og:image" content="assets/img/home-dark.webp">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/icons/video-television.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    // Apply a saved theme before first paint to avoid a flash.
+    try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="#top">
+      <img src="assets/icons/video-television.svg" alt="" width="28" height="28">
+      <span>Entertainment&nbsp;OS</span>
+    </a>
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#subsystems">Subsystems</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#code">Code</a>
+      <a href="#team">Team</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.4 5.4 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1Z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero wrap">
+    <p class="eyebrow">Graduation project &middot; Al-Azhar University &middot; 2026</p>
+    <h1>An AI-powered entertainment OS for TVs and consoles</h1>
+    <p class="lead">
+      A Linux-based operating system that brings streaming services, games and apps into one
+      interface built for a remote or a gamepad, with every AI feature running locally on the device.
+    </p>
+    <div class="cta">
+      <a class="btn btn--primary" href="#code">
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        Source code
+      </a>
+      <a class="btn" href="assets/docs/poster.pdf" target="_blank" rel="noopener">Project poster (PDF)</a>
+    </div>
+
+    <figure class="hero__shot shot" data-zoom>
+      <img class="only-dark" src="assets/img/home-dark.webp" width="1600" height="1000" alt="TV Shell home screen in dark mode, showing Discover shortcuts and a grid of installed games">
+      <img class="only-light" src="assets/img/home-light.webp" width="1600" height="1000" alt="TV Shell home screen in light mode, showing Discover shortcuts and a grid of installed games">
+    </figure>
+
+    <ul class="pillars">
+      <li>
+        <h3>Unified</h3>
+        <p>One interface for videos, movies, podcasts, live TV and games, instead of a separate app for each service.</p>
+      </li>
+      <li>
+        <h3>Private by design</h3>
+        <p>Speech recognition, intent parsing, recommendations and content filtering all run locally. No user data leaves the device.</p>
+      </li>
+      <li>
+        <h3>Remote-first</h3>
+        <p>Every screen can be used with a small fixed set of inputs: the arrow keys, Select and Back. That works on a TV remote or any gamepad.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ SUBSYSTEMS ============ -->
+  <section id="subsystems" class="section">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">What we built</p>
+        <h2>Four subsystems, one platform</h2>
+        <p class="section__lead">The OS is split into four subprojects. They share platform services and a common interaction model, and each one was developed as a separate project.</p>
+      </header>
+
+      <!-- 1. Streaming -->
+      <article class="sub" style="--c: var(--c-stream)">
+        <div class="sub__text">
+          <div class="sub__title">
+            <img src="assets/icons/applications-multimedia.svg" alt="" width="40" height="40">
+            <div>
+              <span class="sub__num">01</span>
+              <h3>Unified Streaming System</h3>
+            </div>
+          </div>
+          <p>A single streaming app and video player that pulls in content from many providers through plugins. The user sees one consistent catalogue, with no ads and recommendations computed on the device.</p>
+          <ul class="ticks">
+            <li>Plugin-based sources: YouTube, SoundCloud, PeerTube, PodcastIndex, IPTV, RSS, radio, ActivityPub and local media</li>
+            <li>Universal player for local files, online video, audio and live streams</li>
+            <li>Custom playlists, downloads, and whitelisting and blacklisting of channels and topics</li>
+            <li><strong>Real-time, frame-by-frame computer vision filter</strong> that blurs inappropriate or violent content during playback</li>
+            <li>Text classification model that filters titles and search results</li>
+          </ul>
+          <ul class="chips"><li>Streaming Service</li><li>Streaming App</li><li>Video Player</li><li>CV models</li><li>Text classifier</li></ul>
+          <p class="stack"><span>Built with</span> Flutter &middot; BLoC &middot; media_kit &middot; ONNX Runtime &middot; Kotlin &middot; NewPipeExtractor &middot; YOLOv8</p>
+        </div>
+        <div class="gallery">
+          <figure class="shot shot--wide" data-zoom><img src="assets/img/stream-videos.webp" width="1600" height="1000" loading="lazy" alt="Streaming app home with a featured video, recommendations and live streams"><figcaption>Videos: recommendations and live streams</figcaption></figure>
+          <figure class="shot" data-zoom><img src="assets/img/stream-movies.webp" width="1600" height="1000" loading="lazy" alt="Movies tab showing trending movies"><figcaption>Movies</figcaption></figure>
+          <figure class="shot" data-zoom><img src="assets/img/stream-iptv.webp" width="1600" height="1000" loading="lazy" alt="IPTV browser listing over 39,000 channels across 231 countries"><figcaption>IPTV: 39k channels, 231 countries</figcaption></figure>
+          <figure class="shot" data-zoom><img src="assets/img/stream-search.webp" width="1600" height="1000" loading="lazy" alt="Unified search results across sources"><figcaption>Unified search</figcaption></figure>
+          <figure class="shot" data-zoom><img src="assets/img/ai-filter.webp" width="1280" height="720" loading="lazy" alt="Video player with the AI filter blurring a region of the frame in real time, running at 22.8 FPS on CUDA"><figcaption>AI filter: real-time blur at 22.8 FPS</figcaption></figure>
+        </div>
+      </article>
+
+      <!-- 2. Gaming -->
+      <article class="sub sub--flip" style="--c: var(--c-game)">
+        <div class="sub__text">
+          <div class="sub__title">
+            <img src="assets/icons/preferences-desktop-gaming.svg" alt="" width="40" height="40">
+            <div>
+              <span class="sub__num">02</span>
+              <h3>Gaming Stack &amp; Unified Store</h3>
+            </div>
+          </div>
+          <p>One store to browse, install, update and launch apps and games from several ecosystems. Controller support is consistent across all of them.</p>
+          <ul class="ticks">
+            <li>Aggregates Flatpak, Snap, AppImage, Android, Windows, PlayStation&nbsp;2, Wii and HTML5 titles</li>
+            <li>Library, updates and per-bundle details (runtime, SDK, size, branch)</li>
+            <li>Automatic input remapping so each game works with whatever remote or controller is connected</li>
+            <li>Emulators and compatibility layers set up behind one interface</li>
+          </ul>
+          <ul class="chips"><li>Store Service</li><li>Apps &amp; Games Store</li><li>Input Management</li><li>Emulators</li></ul>
+          <p class="stack"><span>Built with</span> Flutter &middot; Clean Architecture &middot; Cubit &middot; SQLite &middot; Rust &middot; libflatpak</p>
+        </div>
+        <div class="gallery">
+          <figure class="shot shot--wide" data-zoom><img src="assets/img/store-games.webp" width="1600" height="1000" loading="lazy" alt="Game store grid with category filters"><figcaption>Games catalogue</figcaption></figure>
+          <figure class="shot" data-zoom><img src="assets/img/store-details.webp" width="1600" height="1000" loading="lazy" alt="Game detail page with description, screenshots and Flatpak bundle info"><figcaption>Game details and bundle info</figcaption></figure>
+          <figure class="shot" data-zoom><img src="assets/img/store-library.webp" width="1600" height="1000" loading="lazy" alt="Library of installed apps and games"><figcaption>Library</figcaption></figure>
+          <figure class="shot" data-zoom><img src="assets/img/store-apps.webp" width="1600" height="1000" loading="lazy" alt="Apps catalogue with categories"><figcaption>Apps</figcaption></figure>
+          <figure class="shot" data-zoom><img src="assets/img/store-updates.webp" width="1600" height="1000" loading="lazy" alt="Available updates list"><figcaption>Updates</figcaption></figure>
+        </div>
+      </article>
+
+      <!-- 3. Voice -->
+      <article class="sub" style="--c: var(--c-voice)">
+        <div class="sub__text">
+          <div class="sub__title">
+            <img src="assets/icons/sound-recorder.svg" alt="" width="40" height="40">
+            <div>
+              <span class="sub__num">03</span>
+              <h3>AI Voice Assistant</h3>
+            </div>
+          </div>
+          <p>A voice agent that runs entirely on the device. It turns speech into structured commands that control apps, services and the system itself.</p>
+          <ul class="ticks">
+            <li>Speech-to-text with Whisper, intent parsing with a local NLU model</li>
+            <li>Conversational commands with follow-up questions</li>
+            <li>Multi-step actions, for example <em>&ldquo;Open YouTube and play the latest video from X&rdquo;</em></li>
+            <li>Wake-word activation for hands-free use</li>
+            <li>Fully offline: no audio or text leaves the device</li>
+          </ul>
+          <ul class="chips"><li>AI Assistant Service</li><li>Speech Recognition</li><li>Whisper</li><li>NLU model</li><li>Assistant client</li></ul>
+          <p class="stack"><span>Built with</span> Python &middot; Whisper &middot; intent classifier &middot; entity extraction &middot; Arabic STT/NLU/TTS</p>
+        </div>
+        <div class="voice">
+          <figure class="shot shot--portrait" data-zoom><img src="assets/img/voice.webp" width="458" height="609" loading="lazy" alt="Voice agent overlay: the user said 'open movies' and the agent returned a JSON command to open the Movies app"><figcaption>Speech &rarr; intent &rarr; action</figcaption></figure>
+          <ol class="pipeline" aria-label="Voice pipeline">
+            <li><span>Microphone</span><small>wake word</small></li>
+            <li><span>Whisper</span><small>speech&nbsp;&rarr;&nbsp;text</small></li>
+            <li><span>NLU model</span><small>text&nbsp;&rarr;&nbsp;intent</small></li>
+            <li><span>Assistant Service</span><small>intent&nbsp;&rarr;&nbsp;system&nbsp;action</small></li>
+          </ol>
+        </div>
+      </article>
+
+      <!-- 4. Shell -->
+      <article class="sub sub--flip" style="--c: var(--c-shell)">
+        <div class="sub__text">
+          <div class="sub__title">
+            <img src="assets/icons/homebank.svg" alt="" width="40" height="40">
+            <div>
+              <span class="sub__num">04</span>
+              <h3>TV Shell Home Environment</h3>
+            </div>
+          </div>
+          <p>The main interface of the OS. It shows every app, game, service, open window and connected device on one screen, and it defines how every other app is navigated.</p>
+          <ul class="ticks">
+            <li>Home screen with light and dark modes, and automatic discovery of devices and media inputs</li>
+            <li>On-screen keyboard designed for D-pad navigation, with English and Arabic (RTL) layouts</li>
+            <li>Input Management Service maps TV remotes and gamepads to one input model, with global and per-app remapping</li>
+            <li>Speech-to-text as an input method in any text field</li>
+          </ul>
+          <ul class="chips"><li>TV Shell Home UI</li><li>Virtual Keyboard</li><li>Input Management</li></ul>
+          <p class="stack"><span>Built with</span> Kotlin &middot; GTK4 via java-gi &middot; gtk4-layer-shell &middot; wlroots / Hyprland &middot; input-remapper</p>
+        </div>
+        <div class="gallery">
+          <figure class="shot shot--wide" data-zoom>
+            <img class="only-dark" src="assets/img/home-dark.webp" width="1600" height="1000" loading="lazy" alt="TV Shell home screen in dark mode">
+            <img class="only-light" src="assets/img/home-light.webp" width="1600" height="1000" loading="lazy" alt="TV Shell home screen in light mode">
+            <figcaption>Home screen: apps, games and media in one place</figcaption>
+          </figure>
+          <figure class="shot" data-zoom><img src="assets/img/osk-overlay.webp" width="1600" height="973" loading="lazy" alt="On-screen keyboard overlaid on the streaming app"><figcaption>On-screen keyboard over a running app</figcaption></figure>
+          <div class="stackfig">
+            <figure class="shot" data-zoom><img src="assets/img/osk-en.webp" width="749" height="235" loading="lazy" alt="On-screen keyboard, English layout"><figcaption>English layout</figcaption></figure>
+            <figure class="shot" data-zoom><img src="assets/img/osk-ar.webp" width="749" height="235" loading="lazy" alt="On-screen keyboard, Arabic layout"><figcaption>Arabic layout</figcaption></figure>
+          </div>
+          <div class="inputset">
+            <p class="inputset__label">The fixed input set every app must support</p>
+            <div class="keys" aria-hidden="true">
+              <kbd>&uarr;</kbd><kbd>&darr;</kbd><kbd>&larr;</kbd><kbd>&rarr;</kbd><kbd class="wide">Select</kbd><kbd class="wide">Back</kbd>
+            </div>
+            <p class="inputset__note">From our Human Interface Guidelines: every app must be fully usable with these inputs alone, so it works with an ordinary TV remote. No pointer is required.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ ARCHITECTURE ============ -->
+  <section id="architecture" class="section section--alt">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">How it fits together</p>
+        <h2>Layered architecture</h2>
+        <p class="section__lead">Apps never call AI models directly. Platform services wrap the models and expose simple interfaces, so a model can be replaced without touching the apps, and several apps can share one capability.</p>
+      </header>
+
+      <div class="arch" role="img" aria-label="Four-layer architecture: user applications on top, then platform services and shared AI models side by side, then the system core of Linux, Wayland, PipeWire and Flatpak.">
+        <div class="layer">
+          <h4>User applications</h4>
+          <ul>
+            <li data-s="shell">TV Shell Home UI</li>
+            <li data-s="stream">Streaming App</li>
+            <li data-s="game">Apps &amp; Games Store</li>
+            <li data-s="stream">Video Player</li>
+            <li data-s="voice">Voice Assistant Client</li>
+          </ul>
+        </div>
+        <div class="layer-row">
+          <div class="layer">
+            <h4>Platform services</h4>
+            <ul>
+              <li data-s="stream">Streaming</li>
+              <li data-s="game">Store</li>
+              <li data-s="voice">AI Assistant</li>
+              <li data-s="voice">Speech Recognition</li>
+              <li data-s="shell">Virtual Keyboard</li>
+              <li data-s="shell">Input Management</li>
+            </ul>
+          </div>
+          <div class="layer">
+            <h4>Shared AI models <small>(on-device)</small></h4>
+            <ul>
+              <li data-s="stream">Computer vision</li>
+              <li data-s="stream">Text classification</li>
+              <li data-s="voice">Whisper (ASR)</li>
+              <li data-s="voice">NLU</li>
+            </ul>
+          </div>
+        </div>
+        <div class="layer layer--core">
+          <h4>System core &middot; standard FreeDesktop stack</h4>
+          <ul>
+            <li>Linux kernel</li>
+            <li>Wayland</li>
+            <li>PipeWire</li>
+            <li>Flatpak</li>
+          </ul>
+        </div>
+      </div>
+      <ul class="legend" aria-label="Legend">
+        <li data-s="stream">Streaming</li>
+        <li data-s="game">Gaming</li>
+        <li data-s="voice">Voice assistant</li>
+        <li data-s="shell">TV Shell</li>
+      </ul>
+
+      <div class="principles">
+        <div>
+          <h3>Built on open standards</h3>
+          <p>Wayland, PipeWire, Flatpak and the FreeDesktop specifications give us hardware support, graphics, audio and packaging. We built only what was missing for a TV.</p>
+        </div>
+        <div>
+          <h3>Consistent across toolkits</h3>
+          <p>A shared stylesheet and guidelines make libadwaita and Flutter apps look and behave the same, including the theme, accent colour, wallpaper and Back-button behaviour.</p>
+        </div>
+        <div>
+          <h3>Localized from the start</h3>
+          <p>Right-to-left layouts, Arabic keyboard input and Arabic content are supported throughout, alongside English.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CODE ============ -->
+  <section id="code" class="section">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">Open source</p>
+        <h2>Repositories</h2>
+        <p class="section__lead">The OS is made of several open-source projects that we wrote, spread across our personal GitHub accounts.</p>
+      </header>
+      <ul class="repos">
+        <li><a href="https://github.com/hamza-algohary/tvland" target="_blank" rel="noopener" style="--c: var(--c-shell)">
+          <img src="assets/icons/homebank.svg" alt="" width="32" height="32">
+          <span><strong>tvland</strong><small>The TV Shell home UI, built on GTK4 with its own Wayland window-management layer for wlroots and Hyprland.</small><em>hamza-algohary &middot; Kotlin</em></span>
+        </a></li>
+        <li><a href="https://github.com/hamza-algohary/java-gi-gtk4layershell" target="_blank" rel="noopener" style="--c: var(--c-shell)">
+          <img src="assets/icons/preferences-desktop.svg" alt="" width="32" height="32">
+          <span><strong>java-gi-gtk4layershell</strong><small>Java bindings for gtk4-layer-shell, used to draw shell surfaces and overlays.</small><em>hamza-algohary &middot; Java</em></span>
+        </a></li>
+        <li><a href="https://github.com/hamza-algohary/input-remapper-gamepad-navigation-preset" target="_blank" rel="noopener" style="--c: var(--c-shell)">
+          <img src="assets/icons/input-gaming.svg" alt="" width="32" height="32">
+          <span><strong>input-remapper-gamepad-navigation-preset</strong><small>Maps any gamepad to the system's navigation inputs.</small><em>hamza-algohary &middot; Preset</em></span>
+        </a></li>
+        <li><a href="https://github.com/hamza-algohary/tvos" target="_blank" rel="noopener" style="--c: var(--c-shell)">
+          <img src="assets/icons/ubiquity-kde.svg" alt="" width="32" height="32">
+          <span><strong>tvos</strong><small>Setup script that installs the OS on top of an Arch Linux install medium.</small><em>hamza-algohary &middot; Shell</em></span>
+        </a></li>
+        <li><a href="https://github.com/hassanolaa/streamapp" target="_blank" rel="noopener" style="--c: var(--c-stream)">
+          <img src="assets/icons/applications-multimedia.svg" alt="" width="32" height="32">
+          <span><strong>streamapp</strong><small>Flutter streaming app for videos, movies, series, podcasts and IPTV, with on-device content filtering through ONNX Runtime.</small><em>hassanolaa &middot; Dart</em></span>
+        </a></li>
+        <li><a href="https://github.com/hamza-algohary/tuber" target="_blank" rel="noopener" style="--c: var(--c-stream)">
+          <img src="assets/icons/multimedia-video-player.svg" alt="" width="32" height="32">
+          <span><strong>tuber</strong><small>Streaming backend: JSON CLI for YouTube, PeerTube, SoundCloud and more, built on NewPipeExtractor.</small><em>hamza-algohary &middot; Kotlin</em></span>
+        </a></li>
+        <li><a href="https://github.com/KhaledEkramy/Graduation-Project" target="_blank" rel="noopener" style="--c: var(--c-stream)">
+          <img src="assets/icons/yast-hwinfo.svg" alt="" width="32" height="32">
+          <span><strong>Graduation-Project</strong><small>YOLOv8 detection model training for the real-time video filter.</small><em>KhaledEkramy &middot; Python</em></span>
+        </a></li>
+        <li><a href="https://github.com/KhaledEkramy/blood-detector" target="_blank" rel="noopener" style="--c: var(--c-stream)">
+          <img src="assets/icons/yast-hwinfo.svg" alt="" width="32" height="32">
+          <span><strong>blood-detector</strong><small>YOLOv8s model for detecting violent content.</small><em>KhaledEkramy &middot; Python</em></span>
+        </a></li>
+        <li><a href="https://github.com/hassanolaa/appstore" target="_blank" rel="noopener" style="--c: var(--c-game)">
+          <img src="assets/icons/org.gnome.Software.svg" alt="" width="32" height="32">
+          <span><strong>appstore</strong><small>Flutter app and game store: catalogue, library, updates and install progress, built with Clean Architecture.</small><em>hassanolaa &middot; Dart</em></span>
+        </a></li>
+        <li><a href="https://github.com/hamza-algohary/libflatpakcli" target="_blank" rel="noopener" style="--c: var(--c-game)">
+          <img src="assets/icons/system-software-update.svg" alt="" width="32" height="32">
+          <span><strong>libflatpakcli</strong><small>Store backend: Flatpak operations with machine-readable output, used by the store.</small><em>hamza-algohary &middot; Rust</em></span>
+        </a></li>
+        <li><a href="https://github.com/mohamedgomaa15/Voice-AI-Agent" target="_blank" rel="noopener" style="--c: var(--c-voice)">
+          <img src="assets/icons/sound-recorder.svg" alt="" width="32" height="32">
+          <span><strong>Voice-AI-Agent</strong><small>Voice-to-action pipeline: Whisper STT, intent classification, entity extraction and command execution.</small><em>mohamedgomaa15 &middot; Python</em></span>
+        </a></li>
+        <li><a href="https://github.com/MostafaMahmoudAshour/ai_voice_assistant" target="_blank" rel="noopener" style="--c: var(--c-voice)">
+          <img src="assets/icons/deepin-voice-note.svg" alt="" width="32" height="32">
+          <span><strong>ai_voice_assistant</strong><small>Arabic voice pipeline: speech-to-text, NLU and text-to-speech.</small><em>MostafaMahmoudAshour &middot; Python</em></span>
+        </a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section id="team" class="section section--alt">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">Who built it</p>
+        <h2>Team</h2>
+      </header>
+      <ul class="team">
+        <li>
+          <strong>Hamza Algohary</strong>
+          <span class="role">TV Shell, Wayland integration, streaming and store backends</span>
+          <span class="links"><a href="https://github.com/hamza-algohary" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/hamza-algohary/" target="_blank" rel="noopener">LinkedIn</a></span>
+        </li>
+        <li>
+          <strong>Alhassan Abdulkhalek</strong>
+          <span class="role">Streaming app and app &amp; game store (Flutter)</span>
+          <span class="links"><a href="https://github.com/hassanolaa" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/hassan-abdlkhalek/" target="_blank" rel="noopener">LinkedIn</a></span>
+        </li>
+        <li>
+          <strong>Khaled Ekramy</strong>
+          <span class="role">Computer vision models for the real-time content filter</span>
+          <span class="links"><a href="https://github.com/KhaledEkramy" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/khaled-ekramy/" target="_blank" rel="noopener">LinkedIn</a></span>
+        </li>
+        <li>
+          <strong>Mohammad Gomaa</strong>
+          <span class="role">Voice AI agent: speech recognition, intent classification, command execution</span>
+          <span class="links"><a href="https://github.com/mohamedgomaa15" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/mohamed-gomaa-420a82330/" target="_blank" rel="noopener">LinkedIn</a></span>
+        </li>
+        <li>
+          <strong>Mostafa Mahmoud</strong>
+          <span class="role">Arabic voice pipeline: STT, NLU and TTS</span>
+          <span class="links"><a href="https://github.com/MostafaMahmoudAshour" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/mostafa-mahmoud-ashour-b69373265/" target="_blank" rel="noopener">LinkedIn</a></span>
+        </li>
+      </ul>
+      <p class="supervisor">Supervised by <a class="supervisor__link" href="https://www.linkedin.com/in/ashraf-al-marakeby-02aa3353/" target="_blank" rel="noopener"><strong>Prof. Dr. Ashraf Elmarakby</strong></a> &middot; Al-Azhar University</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <span>Graduation project, 2026. Built on Linux and open-source software.</span>
+    <span>Icons: <a href="https://github.com/PapirusDevelopmentTeam/papirus-icon-theme" target="_blank" rel="noopener">Papirus</a> (GPL-3.0)</span>
+  </div>
+</footer>
+
+<dialog class="lightbox" aria-label="Screenshot viewer">
+  <button class="lightbox__close" type="button" aria-label="Close">&times;</button>
+  <img alt="">
+  <p class="lightbox__cap"></p>
+</dialog>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
